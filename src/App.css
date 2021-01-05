@@ -76,7 +76,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 .App {
   /* The image used */
-  background-image: url(https://media.giphy.com/media/3og0IIB0CrEPomHBYs/giphy.gif); 
+  /* background-image: url(https://media.giphy.com/media/3og0IIB0CrEPomHBYs/giphy.gif);  */
 
   /* Full height */
   height: 100%; 
@@ -119,19 +119,80 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   padding: 0 0;
 
 }
+
+
+.searchBox {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform:  translate(-50%,50%);
+  background: #fff;
+  height: 30px;
+  border-radius: 40px;
+  padding: 10px;
+}
+.searchInput{
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+
+.item1 h2{
+  font-size: 30px;
+  margin-top: 15px;
+  font-weight: 900;
+}
+.item1 h2{
+  position: relative;
+  animation: mymove 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mymove {
+  from {top: -100px;}
+  to {top: 0px;}
+}
+
+.item1 h3 {
+  position: relative;
+  animation: myleft 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes myleft {
+  from {left: -100px;}
+  to {left: 0px;}
+}
+
+
 .item1 h2,h3{
   text-align: start;
   margin-left: 25px;
   margin-bottom: 0px;
 }
+
 .item2 p{
   text-align: start;
   margin-left: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 18px;
+  font-size: 16px;
+  color:#283747;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.item2 img{
+  float: left;
+  margin-left: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
+.item2 h4 {
+  font-size: 18px;
+  margin: 10px 10px;
+}
 .item1 h3{
   margin-top: -10px;
 }
@@ -139,9 +200,35 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 .item1 {
   
   /* The image used */
-  background-image: url(../src/assets/delhiday.jpg);
+  /* background-image: url(../src/assets/delhiday.jpg); */
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+}
+
+.flex-item-left {
+  /* background-color: #f1f1f1; */
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  /* background-color: dodgerblue; */
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
