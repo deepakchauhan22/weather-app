@@ -34,7 +34,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import cloudicon from './assets/cloudy.svg';
 import sunicon from './assets/day.svg';
 import thunder from './assets/thunder.svg';
-
+import moonicon from './assets/night.svg';
+import rainicon from './assets/rainy.svg';
+import hazeicon from './assets/haze.svg';
+import misticon from './assets/mist.svg';
 class App extends Component {
 
   constructor(props){
@@ -86,17 +89,44 @@ class App extends Component {
         return response.json();
       })
       .then((data) => {
+
+        const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'Nocvember',
+          'December',
+        ];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const currentDate = new Date();
+        const date = `${days[currentDate.getDay()]}, ${currentDate.getDate()} ${
+          months[currentDate.getMonth()]
+        }`;
+        const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString().slice(0, 5);
+        const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString().slice(0, 5);
+
         this.setState({
           img: data,
           title: data.coord.lon,
           temp:data.main.temp,
+          feels:data.main.feels_like,
           status: data.weather[0].main,
           description: data.weather[0].description,
           humidity: data.main.humidity,
           media_type: data.media_type,
           name: data.name,
           country: data.sys.country,
-          wind: data.wind.speed
+          wind: data.wind.speed,
+          date,
+          sunset,
+          sunrise,
         })
       })
        .catch((error)=>{
@@ -110,22 +140,22 @@ class App extends Component {
       
 render (){
   
-  const {temp,status,wind,description,country,name,humidity, Background} =this.state;
+  const {temp,feels,status,wind,sunrise, sunset,date ,description,country,name,humidity, Background} =this.state;
   var tempC = temp - 273.15;
-  var b ='';
-  if(!temp){
-    b = '22'
-  }
-  else{
-     b = parseInt(tempC);
-  }
+  var feels_like = feels - 273.15
+  var temperature =parseInt(tempC);
+  var feelslike = parseInt(feels_like);
+
  
   var urlImg = null;
   var iconsvg = null;
   var cityImg = null;
 
-  var d = new Date();
-  var currentDate = d.toDateString();
+  // var d = new Date();
+  // var currentDate = d.toDateString();
+
+ 
+
  
 //status check
   if(status=='Smoke'){
@@ -137,28 +167,40 @@ render (){
   }
     else if (status==='Clouds')
     {
+      iconsvg = cloudicon;
     urlImg = cloudy;
    }
     else if (status==='Fog')
     {
+      iconsvg = cloudicon;
     urlImg = fog;
    }
     else if (status==='Mist') {
+      iconsvg = misticon;
       urlImg = Mist;
     }
     else if (status==='Clear') {
       urlImg = clearsky;
+      iconsvg = sunicon;
+
     }
 	else if (status==='Thunderstorm') {
       urlImg = lightning;
       iconsvg = thunder;
     }
+		else if (status==='Rain') {
+      urlImg = rainroad;
+      iconsvg = rainicon;
+    }
 	
 	else if (status==='Haze') {
       urlImg = haze;
+      iconsvg = hazeicon;
     }
 	else{
-		urlImg = normweather;
+    urlImg = normweather;
+    iconsvg = cloudicon;
+
 	}
   //city check
   
@@ -212,27 +254,40 @@ render (){
                 <section className="item1"  style={{backgroundImage: `url(${cityImg})` }}>
 
                                 <h2>{name}, {country}</h2>
-                                <h3>{b}<span>&#176;c</span></h3>
+                                <h3>{temperature}<span>&#176;c</span></h3>
                 </section>
                           
 
                 <section className="item2">  
-
-                                     <div class="flex-container">
-                                            <div class="flex-item-left">
-                                            <h4>{currentDate}</h4>
+                <h4>{date}</h4>
+                            <div class="flex-container main">
+                            
+                                  <div class="flex-item-left">
+                                        
                                             <img src={iconsvg} alt="Cloud" />
-                                            <p>{status}</p>
-                                            <p>Wind : {wind}mph</p>
+                                            <p>{description}</p>
+                                            <p>Feels like : {feelslike}<span>&#176;c</span></p>
+                                            <p>Wind : {wind}kmph</p>
                                             <p>Humidity : {humidity}<span>&#37;</span></p>     
-                                      </div>
+                                  </div>
 
-                                      <div class="flex-item-right">
- 
-                                     <img src={iconsvg} alt="Cloud" />  <img src={iconsvg} alt="Cloud" />  <img src={iconsvg} alt="Cloud" />
-
-                                      </div>
-                                    </div>
+                                  <div class="flex-item-right">
+                                        <div class="flex-container moredetails">
+                                              <div class="flex-item-left">
+                                                  <img src={sunicon} alt="Cloud" /> <br/>
+                                                  <p>{sunrise}</p>
+                                              </div>
+                                              <div class="flex-item-mid">
+                                                  <img src={moonicon} alt="Cloud" /> 
+                                                    <p>{sunset}</p>
+                                              </div>
+                                              <div class="flex-item-right">
+                                                    <img src={rainicon} alt="Cloud" /> 
+                                                    <p>{humidity}%</p>
+                                              </div>
+                                        </div>
+                                  </div>
+                            </div>
 
                 </section>
          </div>

@@ -104,9 +104,9 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   
   display: grid;
   grid-template-areas:
-    'header header header header header header'
-    'footer footer footer footer footer footer';
-    grid-template-rows: 55% 45%;
+    'header'
+    'footer';
+    grid-template-rows: 57% 43%;
   grid-gap: 0px;
   padding: 0px;
   height: inherit;
@@ -149,6 +149,21 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   animation-fill-mode: forwards;
 }
 
+.item1 h3{
+  margin-top: -10px;
+}
+
+.item1 {
+  
+  /* The image used */
+  /* background-image: url(../src/assets/delhiday.jpg); */
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 @keyframes mymove {
   from {top: -100px;}
   to {top: 0px;}
@@ -174,7 +189,6 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 .item2 p{
   text-align: start;
-  margin-left: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 16px;
@@ -184,29 +198,15 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .item2 img{
   float: left;
-  margin-left: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
+  width:95px
 }
 
 .item2 h4 {
   font-size: 18px;
-  margin: 10px 10px;
+  margin: 5px 10px;
 }
-.item1 h3{
-  margin-top: -10px;
-}
-
-.item1 {
-  
-  /* The image used */
-  /* background-image: url(../src/assets/delhiday.jpg); */
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -220,6 +220,11 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   flex: 50%;
 }
 
+.flex-item-mid {
+  /* background-color: dodgerblue; */
+  padding: 10px;
+  flex: 50%;
+}
 .flex-item-right {
   /* background-color: dodgerblue; */
   padding: 10px;
@@ -231,4 +236,24 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   .flex-container {
     flex-direction: column;
   }
+}
+
+.moredetails .flex-item-left{
+  padding-top: 0px;
+}
+.moredetails .flex-item-mid{
+  padding-top: 0px;
+}
+.moredetails .flex-item-right {
+  padding-top: 0px;
+}
+.moredetails p{text-align: center;
+
+}
+.moredetails img {
+
+  width: 75px;
+}
+.main .flex-item-right {
+  padding-top: 0px;
 }
