@@ -1,3 +1,6 @@
+Check out this project: [Weather App](https://deepakchauhan22.github.io/weather-app-react/).
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
