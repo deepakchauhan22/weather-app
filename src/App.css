@@ -51,10 +51,7 @@ body, html {
   font-weight: 800;
   text-transform: uppercase;
 }
-.footer {
-  font-size: 15px;
-  font-weight: 600;
-}
+
 .list {
   list-style: circle;
 }
@@ -215,24 +212,24 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .flex-item-left {
-  /* background-color: #f1f1f1; */
+  
   padding: 10px;
   flex: 50%;
 }
 
 .flex-item-mid {
-  /* background-color: dodgerblue; */
+
   padding: 10px;
   flex: 50%;
 }
 .flex-item-right {
-  /* background-color: dodgerblue; */
+ 
   padding: 10px;
   flex: 50%;
 }
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
-@media (max-width: 800px) {
+@media (max-width: 530px) {
   .flex-container {
     flex-direction: column;
   }
@@ -256,4 +253,226 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .main .flex-item-right {
   padding-top: 0px;
+}
+
+
+
+.footer {
+  display: inline;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+  font-weight: 600;
+  margin: auto;
+  width: 300px;
+  height: 50px;
+  color:black;
+  text-align: center;
+ 
+}
+.aboutme {
+  
+  padding: none;
+}
+.aboutme > .name a{
+   text-decoration: none;
+   color: #000;
+   letter-spacing: 0.00875em;
+   font-size: 20px;
+   font-weight: 900;
+  
+ }
+
+ /* Responsive layout - makes a one column-layout instead of two-column layout */
+ /* .searchBox {
+  top: 5%;
+} */
+
+@media  (min-width: 531px) and (max-width: 650px){
+
+.Block{
+    width: 500px;
+     height: 400px;
+  }
+  .moredetails img {
+    width: 60px;
+}
+.item2 p {
+  font-size: 14px;
+}
+.moredetails p {
+  font-size: 17px;
+}
+
+}
+
+@media  (min-width: 430px) and (max-width: 530px){
+
+  .Block {
+    width: 400px;
+    height: 500px;
+}
+.item2 h4 {
+  font-size: 15px;
+  
+}
+  .main img {
+    
+      left: 10%;
+      float: left;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      width: 120px;
+      position: relative;
+  }
+  .moredetails img {
+    width: 60px;
+    float: left;
+}
+  .item2 p {
+    font-size: 15px;
+    text-align: center;
+  }
+  .moredetails p {
+    display: inline-block;
+    text-align: center;
+    font-size: 17px;
+  }
+  
+.moredetails{
+  flex-direction: row;
+}
+
+.grid-container {
+  grid-template-rows: 50% 50%;
+}
+}
+
+
+@media  (min-width: 380px) and (max-width: 429px){
+  .item1 h2 {
+    font-size: 27px;
+    margin-top: 10px;
+    font-weight: 900;
+}
+
+  .Block {
+    width: 320px;
+    height: 500px;
+   }
+     
+.moredetails{
+  flex-direction: row;
+}
+.main img {
+  left: 10%;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 120px;
+  position: relative;
+ 
+}
+.moredetails img {
+  width: 60px;
+  float: left;
+}
+.item2 p {
+  font-size: 15px;
+  text-align: center;
+}
+.moredetails p {
+  display: inline-block;
+  text-align: center;
+  font-size: 17px;
+}
+  .grid-container {
+   grid-template-rows: 40% 60%;
+  }
+
+}
+@media  (min-width: 300px) and (max-width: 379px){
+
+  .item1 h2 {
+    font-size: 25px;
+    margin-top: 10px;
+    font-weight: 900;
+}
+  .Block {
+    width: 280px;
+    height: 500px;
+}
+.moredetails{
+  flex-direction: row;
+}
+.main img {
+  left: 5%;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 120px;
+  position: relative;
+ 
+}
+.moredetails img {
+  width: 60px;
+  float: left;
+}
+.item2 p {
+  font-size: 15px;
+  text-align: center;
+}
+.moredetails p {
+  display: inline-block;
+  text-align: center;
+  font-size: 17px;
+}
+  .grid-container {
+   grid-template-rows: 40% 60%;
+  }
+
+}
+@media  (min-width: 210px) and (max-width: 299px){
+  .item1 h2 {
+    font-size: 25px;
+    margin-top: 10px;
+    font-weight: 900;
+}
+
+  .Block {
+    width: 250px;
+    height: 500px;
+}
+.moredetails{
+  flex-direction: row;
+}
+.main img {
+  left: 5%;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 120px;
+  position: relative;
+ 
+}
+.moredetails img {
+  width: 60px;
+  float: left;
+}
+.item2 p {
+  font-size: 15px;
+  text-align: center;
+}
+.moredetails p {
+  display: inline-block;
+  text-align: center;
+  font-size: 17px;
+}
+  .grid-container {
+   grid-template-rows: 40% 60%;
+  }
+
 }

@@ -38,6 +38,7 @@ import moonicon from './assets/night.svg';
 import rainicon from './assets/rainy.svg';
 import hazeicon from './assets/haze.svg';
 import misticon from './assets/mist.svg';
+import Footer from './component/Footer';
 class App extends Component {
 
   constructor(props){
@@ -47,6 +48,7 @@ class App extends Component {
         error:false,
         title:null,
         temp:null,
+        feels:null,
         humidity:null,
         name:null,
         status:[],
@@ -238,9 +240,9 @@ render (){
    
     <div className="App" style={{ backgroundImage: `url(${urlImg})` }}>  
                                                     {/* style={{ backgroundImage: "url(/delhi.jpg)" }}>  style={this.state.backgroundStyle}*/}
-                    <div class="searchBox">
+                    <div className="searchBox">
                           <form onSubmit={this.handleSubmit}>
-                             <input class="searchInput" onChange={this.handleChange} type ='Search' value={this.state.parameter} placeholder="Search your City..."/> 
+                             <input className="searchInput" onChange={this.handleChange} type ='Search' value={this.state.parameter} placeholder="Search your City..."/> 
                           </form>
                     </div>
   
@@ -260,10 +262,9 @@ render (){
 
                 <section className="item2">  
                 <h4>{date}</h4>
-                            <div class="flex-container main">
+                            <div className="flex-container main">
                             
-                                  <div class="flex-item-left">
-                                        
+                                  <div className="flex-item-left mainleft">
                                             <img src={iconsvg} alt="Cloud" />
                                             <p>{description}</p>
                                             <p>Feels like : {feelslike}<span>&#176;c</span></p>
@@ -271,17 +272,17 @@ render (){
                                             <p>Humidity : {humidity}<span>&#37;</span></p>     
                                   </div>
 
-                                  <div class="flex-item-right">
-                                        <div class="flex-container moredetails">
-                                              <div class="flex-item-left">
-                                                  <img src={sunicon} alt="Cloud" /> <br/>
+                                  <div className="flex-item-right mainright">
+                                        <div className="flex-container moredetails">
+                                              <div className="flex-item-left">
+                                                  <img src={sunicon} alt="Cloud" /> 
                                                   <p>{sunrise}</p>
                                               </div>
-                                              <div class="flex-item-mid">
+                                              <div className="flex-item-mid">
                                                   <img src={moonicon} alt="Cloud" /> 
                                                     <p>{sunset}</p>
                                               </div>
-                                              <div class="flex-item-right">
+                                              <div className="flex-item-right">
                                                     <img src={rainicon} alt="Cloud" /> 
                                                     <p>{humidity}%</p>
                                               </div>
@@ -292,6 +293,12 @@ render (){
                 </section>
          </div>
         </div>
+
+       
+        <Footer />
+
+
+        
 
     </div>
 
